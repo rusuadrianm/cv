@@ -1,0 +1,1285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adrian Rusu Service Review</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Adrian Rusu's CV as an interactive service performance report, mapped to the Service Management Coordinator role.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Adrian Rusu · Service Review">
+<meta property="og:description" content="Adrian Rusu's CV as an interactive service performance report, mapped to the Service Management Coordinator role.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231c2531'/%3E%3Crect x='4' y='13' width='4' height='7' rx='1' fill='%234cc9b8' opacity='.55'/%3E%3Crect x='10' y='8' width='4' height='12' rx='1' fill='%234cc9b8' opacity='.8'/%3E%3Crect x='16' y='4' width='4' height='16' rx='1' fill='%234cc9b8'/%3E%3C/svg%3E">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: BI report shell. Slate app bar with page tabs, a 12-column canvas of visual cards on a cool grey plane, a collapsible filter pane on the right. */
+:root{
+  --plane:#eceef1; --card:#fcfcfb; --card-2:#f2f3f5;
+  --ink:#10151b; --ink-2:#4b535d; --muted:#737b85;
+  --grid:#e2e4e8; --axis:#c3c8cf; --line:rgba(16,21,27,.11);
+  --chrome:#1c2531; --chrome-2:#273241; --chrome-ink:#f2f4f7; --chrome-ink-2:#a9b4c1; --tabmark:#4cc9b8;
+  --accent:#0e7c70; --accent-ink:#0b6359; --accent-wash:rgba(14,124,112,.10); --pip-off:#cfe6e2;
+  --it:#2a78d6; --energy:#eb6834; --c-eng:#1baf7a; --c-lead:#6250d6; --on-fill:#ffffff; --on-warn:#0b0b0b;
+  --good:#0ca30c; --good-ink:#006300; --warn:#fab219; --warn-ink:#7a4f00;
+  --shadow:0 1px 2px rgba(16,21,27,.06),0 1px 1px rgba(16,21,27,.04);
+  --scrim:rgba(10,12,15,.45); --on-accent:#ffffff;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --r:6px;
+}
+/* Light is the default look for every viewer; the app-bar toggle adds .dark */
+:root.dark{
+    --plane:#0f1114; --card:#1a1b1d; --card-2:#222428;
+    --ink:#eef0f2; --ink-2:#bac1c9; --muted:#8a919a;
+    --grid:#2a2d31; --axis:#3b3f45; --line:rgba(255,255,255,.10);
+    --chrome:#090b0e; --chrome-2:#171b21; --chrome-ink:#f2f4f7; --chrome-ink-2:#9aa6b3; --tabmark:#4cc9b8;
+    --accent:#35b8a6; --accent-ink:#62d2c1; --accent-wash:rgba(53,184,166,.14); --pip-off:#24403c;
+    --it:#3987e5; --energy:#d95926; --c-eng:#199e70; --c-lead:#9085e9; --on-fill:#ffffff; --on-warn:#0b0b0b;
+    --good:#0ca30c; --good-ink:#3cc43c; --warn:#fab219; --warn-ink:#f5c14d;
+    --shadow:none; --scrim:rgba(0,0,0,.6);
+    --on-accent:#06201c;
+    color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--plane);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--chrome)}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+h1,h2,h3,h4{text-wrap:balance}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono{font-family:var(--mono)}
+
+/* ---------- App bar ---------- */
+.appbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--chrome);color:var(--chrome-ink)}
+.appbar-in,.tabs-in{max-width:1480px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.appbar-in{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-block:10px 6px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 320px}
+.mark{width:28px;height:28px;flex:none;border-radius:6px;background:var(--chrome-2);padding:5px}
+.mark rect{fill:var(--tabmark)}
+.mark rect:nth-child(1){opacity:.55}.mark rect:nth-child(2){opacity:.8}
+.brand h1{font-size:16px;font-weight:600;letter-spacing:.005em;line-height:1.25}
+.brand h1 span{font-weight:400;color:var(--chrome-ink-2)}
+.brand p{font-size:12px;color:var(--chrome-ink-2);line-height:1.35}
+.bar-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.refresh{font-size:12px;color:var(--chrome-ink-2);display:inline-flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.refresh::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tabmark)}
+.btn-ghost,.btn-cta{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:4px;font-size:13px;font-weight:500;text-decoration:none}
+.btn-ghost{border:1px solid rgba(255,255,255,.22);color:var(--chrome-ink)}
+.btn-ghost:hover{background:var(--chrome-2)}
+.btn-cta{background:var(--tabmark);color:#0b1a18}
+.btn-icon{width:30px;padding:0;justify-content:center}
+.btn-icon svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.th-sun{display:none}
+:root.dark .th-sun{display:block}
+:root.dark .th-moon{display:none}
+.btn-cta:hover{filter:brightness(1.06)}
+.count{min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--tabmark);color:#0b1a18;font-size:11px;font-weight:600;display:inline-grid;place-items:center}
+.tabs{border-top:1px solid rgba(255,255,255,.08)}
+.tabs-in{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:9px 14px 8px;font-size:13px;color:var(--chrome-ink-2);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap}
+.tab:hover{color:var(--chrome-ink);background:rgba(255,255,255,.04)}
+.tab[aria-current="page"]{color:var(--chrome-ink);border-bottom-color:var(--tabmark);font-weight:500}
+.tab .pn{font-family:var(--mono);font-size:11px;opacity:.6;margin-right:6px}
+
+/* ---------- Shell ---------- */
+.shell{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:start;padding-block:16px 24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.canvas{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px;align-content:start;min-width:0}
+.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.span-12{grid-column:1/-1}
+.pagehead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:6px 24px;padding:2px 2px 4px}
+.pagehead h2{font-size:20px;font-weight:600;letter-spacing:-.005em}
+.pagehead p{font-size:13px;color:var(--ink-2);max-width:78ch;margin-top:2px}
+.pagehead .scope{font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* ---------- Visual card ---------- */
+.vis{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0}
+.vis-h{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 12px;padding:12px 10px 4px 14px}
+.vis-h > div:first-child{min-width:0;flex:1 1 220px}
+.vis-t{font-size:14px;font-weight:600;line-height:1.3}
+.vis-s{font-size:12px;color:var(--muted);margin-top:1px}
+.vis-tools{display:flex;gap:2px;margin-left:auto}
+.vt{width:28px;height:28px;border-radius:4px;display:grid;place-items:center;color:var(--muted)}
+.vt:hover{background:var(--card-2);color:var(--ink)}
+.vt[aria-pressed="true"]{background:var(--accent-wash);color:var(--accent-ink)}
+.vt svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.vis-b{padding:8px 14px 14px;min-width:0;flex:1}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-2);align-items:center;padding-top:2px}
+.lg{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;flex:none}
+.sw.it{background:var(--it)}.sw.energy{background:var(--energy)}.sw.eng{background:var(--c-eng)}.sw.lead{background:var(--c-lead)}
+.sw.good{background:var(--good)}.sw.warn{background:var(--warn)}
+.sw.now{width:2px;height:12px;border-radius:0;background:var(--ink)}
+.sw.target{width:2px;height:12px;border-radius:0;background:var(--ink)}
+.vis.focused{position:fixed;z-index:50;top:calc(env(safe-area-inset-top,0px) + 16px);bottom:calc(env(safe-area-inset-bottom,0px) + 16px);left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.scrim{position:fixed;inset:0;background:var(--scrim);z-index:45}
+
+/* ---------- KPI cards ---------- */
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.kpis.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:12px 14px 13px;display:flex;flex-direction:column;gap:2px;min-width:0;text-decoration:none;color:inherit}
+a.kpi:hover{border-color:var(--accent)}
+.kpi-l{font-size:12px;color:var(--ink-2);font-weight:500}
+.kpi-v{font-size:28px;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+.kpi-v small{font-size:14px;font-weight:500;color:var(--ink-2);letter-spacing:0;margin-left:2px}
+.kpi-s{font-size:12px;color:var(--muted);line-height:1.35}
+.tgt{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:11.5px;font-weight:500;color:var(--good-ink);align-self:flex-start;background:color-mix(in srgb,var(--good) 12%,transparent);padding:2px 7px 2px 5px;border-radius:999px}
+.tgt svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Timeline (Gantt) ---------- */
+.tl{display:flex;flex-direction:column}
+.tl-row{display:grid;grid-template-columns:minmax(150px,32%) minmax(0,1fr);gap:12px;align-items:center;padding-block:4px}
+.tl-label{display:flex;flex-direction:column;min-width:0}
+.tl-name{font-size:13px;font-weight:500;line-height:1.25;transition:color .2s}
+.tl-sub{font-size:12px;color:var(--muted);line-height:1.3}
+.tl-track{position:relative;height:28px;background-image:linear-gradient(to right,var(--grid) 1px,transparent 1px);background-size:calc(100% / var(--years)) 100%;border-right:1px solid var(--grid)}
+.tl-bar{position:absolute;top:5px;height:18px;border-radius:4px;min-width:8px;transition:opacity .2s,box-shadow .2s}
+.tl-bar.it{background:var(--it)}.tl-bar.energy{background:var(--energy)}
+.tl-bar:hover{filter:brightness(1.07)}
+.tl-row.is-dim .tl-bar{opacity:.25}
+.tl-row.is-dim .tl-name{color:var(--muted)}
+.tl-row.is-sel .tl-bar{box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--ink)}
+.tl-now{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink);opacity:.75;pointer-events:none}
+.tl-axis{position:relative;height:18px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tick{position:absolute;top:2px;padding-left:4px}
+.tl-group{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);padding:10px 0 2px;border-top:1px solid var(--grid);margin-top:4px}
+.tl-group:first-child{border-top:0;margin-top:0;padding-top:0}
+
+/* ---------- Competency bullet chart ---------- */
+.cb-row{display:grid;grid-template-columns:minmax(140px,30%) minmax(0,1fr);gap:12px;align-items:center;padding-block:5px}
+.cb-label{font-size:13px;line-height:1.25}
+.cb-track{position:relative;display:flex;align-items:center;gap:8px;height:24px}
+.cb-bar{display:flex;gap:2px;height:16px;flex:none}
+.cb-seg{height:100%;min-width:3px;transition:opacity .2s}
+.cb-seg:last-child{border-radius:0 4px 4px 0}
+.cb-seg.it{background:var(--it)}.cb-seg.energy{background:var(--energy)}
+.cb-seg.faded{opacity:.25}
+.cb-v{position:relative;z-index:1;font-size:12px;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums;background:var(--card);padding:0 4px;margin-left:-4px;border-radius:3px}
+.cb-target{position:absolute;top:0;bottom:0;width:2px;background:var(--ink);pointer-events:none}
+.cb-axisrow .cb-label{visibility:hidden}
+.cb-axis{position:relative;height:16px;font-size:11px;color:var(--muted);border-top:1px solid var(--axis);font-variant-numeric:tabular-nums}
+.cb-axis span{position:absolute;top:2px;transform:translateX(-50%);white-space:nowrap}
+.cb-axis span:first-child{transform:none}
+.cb-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,var(--grid) 1px,transparent 1px);background-size:calc(100% / var(--steps)) 100%}
+
+/* ---------- Segmented bars ---------- */
+.mix{display:flex;flex-direction:column;gap:18px}
+.mix-h{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--ink-2);margin-bottom:6px}
+.mix-h b{font-weight:600;color:var(--ink)}
+.segbar{display:flex;gap:2px;height:28px}
+.segbar > span{display:flex;align-items:center;padding-left:8px;border-radius:4px;color:var(--on-fill);font-size:12px;font-weight:600;white-space:nowrap;overflow:visible;min-width:4px;font-variant-numeric:tabular-nums}
+.segbar .it{background:var(--it)}.segbar .energy{background:var(--energy)}.segbar .eng{background:var(--c-eng)}.segbar .lead{background:var(--c-lead)}
+.segbar .good{background:var(--good)}.segbar .warn{background:var(--warn);color:var(--on-warn)}
+.mix .legend{margin-top:8px}
+.mix-note{font-size:12px;color:var(--muted);border-top:1px solid var(--grid);padding-top:10px}
+
+/* ---------- Tables ---------- */
+.tbl-wrap{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--grid);vertical-align:top}
+thead th{font-size:12px;font-weight:600;color:var(--ink-2);background:var(--card-2);border-bottom:1px solid var(--axis);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.matrix th,.matrix td{text-align:center;padding:7px 6px;transition:opacity .2s,background .2s}
+.matrix th:first-child,.matrix td:first-child{text-align:left;padding-left:2px;white-space:nowrap}
+.matrix thead th{background:transparent;border-bottom:1px solid var(--axis)}
+.mx-role{display:block;font-size:12px;color:var(--ink)}
+.mx-yr{display:block;font-size:11px;color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}
+.matrix .dim{opacity:.28}
+.matrix .sel{background:var(--accent-wash)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px var(--card)}
+.dot.it{background:var(--it)}.dot.energy{background:var(--energy)}
+
+/* ---------- Role detail ---------- */
+.rd-k{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.rd-t{font-size:17px;font-weight:600;margin-top:2px;line-height:1.25}
+.rd-o{font-size:13px;color:var(--ink-2);margin-top:2px}
+.rd-meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--muted);margin-top:8px;align-items:center}
+.ichip{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-2);font-weight:500}
+.rd-scope{font-size:13px;margin-top:10px;color:var(--ink)}
+.rd-list{margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--ink-2)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tool{font-size:12px;padding:2px 8px;border-radius:4px;background:var(--card-2);color:var(--ink-2);border:1px solid var(--line)}
+.rd-act{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:13px}
+.link{color:var(--accent-ink);font-weight:500;text-decoration:none}
+.link:hover{text-decoration:underline}
+
+/* ---------- Q&A ---------- */
+.qa-form{display:flex;gap:8px}
+.qa-form input{flex:1;min-width:0;height:38px;border:1px solid var(--axis);border-radius:4px;background:var(--card);color:var(--ink);padding:0 12px;font:inherit;font-size:14px}
+.qa-form input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+.btn{height:38px;padding:0 16px;border-radius:4px;background:var(--accent);color:var(--on-accent);font-weight:500;font-size:13px;flex:none}
+.btn:hover{filter:brightness(1.06)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card-2);color:var(--ink-2);line-height:1.3;transition:background .15s,border-color .15s}
+.chip:hover{border-color:var(--accent);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent-wash);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
+.chip .n{font-family:var(--mono);font-size:11px;opacity:.75;margin-left:4px}
+.qa-ans{margin-top:14px;border-top:1px solid var(--grid);padding-top:12px}
+.qa-q{font-size:12px;color:var(--muted)}
+.qa-q b{color:var(--ink-2);font-weight:500}
+.qa-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;margin-top:8px;align-items:start}
+.qa-metric{display:flex;flex-direction:column;min-width:92px;padding-right:16px;border-right:1px solid var(--grid)}
+.qa-num{font-size:26px;font-weight:600;line-height:1.1}
+.qa-ml{font-size:12px;color:var(--muted);max-width:14ch}
+.qa-text{font-size:14px;line-height:1.55;max-width:68ch}
+.qa-src{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;font-size:12px;color:var(--muted)}
+.qa-none{font-size:13px;color:var(--ink-2)}
+
+/* ---------- Experience ---------- */
+.xp-list{display:flex;flex-direction:column;gap:12px;min-width:0}
+.xp{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:16px 18px}
+.xp-when{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.xp-when b{font-size:13px;color:var(--ink);font-weight:600}
+.xp h3{font-size:17px;font-weight:600;line-height:1.25}
+.xp-org{font-size:13px;color:var(--ink-2);margin-top:2px}
+.xp-scope{font-size:13px;color:var(--ink-2);margin-top:8px;font-style:italic;max-width:70ch}
+.xp-ul{list-style:none;padding:0;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.xp-ul li{position:relative;padding-left:16px;font-size:14px;max-width:72ch;transition:opacity .2s}
+.xp-ul li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:1px;background:var(--axis)}
+.xp-ul li.off{opacity:.35}
+.xp-ul li.hit::before{background:var(--accent)}
+.tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px;vertical-align:1px}
+.tag{font-size:11px;padding:0 6px;border-radius:3px;border:1px solid var(--line);color:var(--muted);line-height:1.6;white-space:nowrap}
+.tag:hover{color:var(--ink);border-color:var(--accent)}
+.tag.on{color:var(--accent-ink);border-color:var(--accent);background:var(--accent-wash)}
+.xp-hidden{font-size:13px;color:var(--muted);padding:10px 4px}
+.side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.mini td,.mini th{padding:7px 4px}
+.mini td:first-child{padding-left:0}
+
+/* ---------- Fit ---------- */
+.st{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;white-space:nowrap;color:var(--ink)}
+.st svg{width:14px;height:14px;flex:none}
+.st.good svg{color:var(--good)}.st.warn svg{color:var(--warn)}
+.reg td:first-child{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.reg td{min-width:120px}
+.reg .ev{color:var(--ink)}
+.reg .bridge{display:block;margin-top:6px;padding:6px 8px;border-radius:4px;background:color-mix(in srgb,var(--warn) 14%,transparent);color:var(--ink);font-size:12.5px}
+.reg .bridge b{color:var(--warn-ink);font-weight:600}
+.reg .src{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.reg .src span{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:0 5px}
+.reg tr.partial td{background:color-mix(in srgb,var(--warn) 4%,transparent)}
+.filterrow{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-bottom:10px}
+.filterrow .fl{font-size:12px;color:var(--muted);margin-right:2px}
+.fgroup{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.open-item{padding:10px 0;border-top:1px solid var(--grid)}
+.open-item:first-child{border-top:0;padding-top:0}
+.oi-h{display:flex;gap:8px;align-items:baseline;justify-content:space-between}
+.oi-id{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.oi-t{font-size:13px;font-weight:500;margin-top:2px}
+.oi-b{font-size:13px;color:var(--ink-2);margin-top:4px}
+
+/* ---------- Plan ---------- */
+.plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.phase{border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;background:var(--card-2)}
+.phase-k{font-family:var(--mono);font-size:12px;color:var(--accent-ink);font-weight:500}
+.phase h4{font-size:15px;font-weight:600;margin-top:2px}
+.phase ul{margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink-2)}
+.ci-d .rd-scope{font-style:normal}
+
+/* ---------- Profile ---------- */
+.idc{padding:18px}
+.idc h3{font-size:24px;font-weight:600;letter-spacing:-.01em}
+.idc .hl{font-size:14px;color:var(--ink-2);margin-top:2px}
+.stmt{font-size:14px;line-height:1.6;margin-top:14px;max-width:66ch}
+.contact{margin-top:16px;display:flex;flex-direction:column;border-top:1px solid var(--grid)}
+.ct{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--grid);font-size:13px}
+.ct-k{color:var(--muted);font-size:12px}
+.ct-v{overflow-wrap:anywhere;user-select:all}
+.ct-v a{user-select:auto}
+.cp{font-size:12px;font-weight:500;color:var(--accent-ink);padding:4px 8px;border-radius:4px;border:1px solid var(--line);white-space:nowrap}
+.cp:hover{border-color:var(--accent)}
+.edu{list-style:none;padding:0;display:flex;flex-direction:column}
+.edu li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;padding:10px 0;border-bottom:1px solid var(--grid)}
+.edu li:last-child{border-bottom:0}
+.edu .y{font-variant-numeric:tabular-nums;font-weight:600;font-size:13px;color:var(--ink-2)}
+.edu .d{font-size:14px;font-weight:500}
+.edu .s{font-size:13px;color:var(--ink-2)}
+.edu .tgt{margin-top:5px}
+.meters{display:flex;flex-direction:column;gap:12px}
+.meter{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+.meter-n{font-size:13px}
+.meter-l{font-size:12px;color:var(--muted);text-align:right}
+.pips{grid-column:1/-1;display:flex;gap:3px}
+.pips i{flex:1;height:6px;border-radius:3px;background:var(--pip-off)}
+.pips i.on{background:var(--accent)}
+.bw{display:flex;flex-direction:column;gap:12px;font-size:13px}
+.bw b{display:block;font-weight:600;font-size:13px}
+.bw span{color:var(--ink-2)}
+
+/* ---------- Filter pane ---------- */
+.fpane{width:260px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);position:sticky;top:calc(env(safe-area-inset-top,0px) + 108px);max-height:calc(100vh - 140px);overflow:auto}
+.fp-h{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid var(--grid)}
+.fp-title{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.fp-title svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.fp-body{padding:10px 12px 14px;display:flex;flex-direction:column;gap:10px}
+.fp-scope{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.fcard{border:1px solid var(--line);border-radius:4px;padding:8px 10px;background:var(--card-2)}
+.fcard-h{font-size:13px;font-weight:600}
+.fval{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+.seg{display:flex;gap:0;margin-top:8px;border:1px solid var(--axis);border-radius:4px;overflow:hidden}
+.seg button{flex:1;padding:5px 4px;font-size:12px;color:var(--ink-2);border-left:1px solid var(--axis)}
+.seg button:first-child{border-left:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);font-weight:500}
+.checks{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+.checks label{display:flex;align-items:center;gap:8px;font-size:13px;padding:3px 0;cursor:pointer;color:var(--ink-2)}
+.checks input{accent-color:var(--accent);width:15px;height:15px;margin:0}
+.checks .n{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.fp-note{font-size:12px;color:var(--muted)}
+.fpane.collapsed{width:44px}
+.fpane.collapsed .fp-body,.fpane.collapsed #fp-clear{display:none}
+.fpane.collapsed .fp-h{border-bottom:0;padding:12px 0;justify-content:center}
+.fpane.collapsed .fp-title{writing-mode:vertical-rl;transform:rotate(180deg)}
+.fpane.collapsed .fp-title svg{transform:rotate(90deg)}
+
+footer.note{max-width:1480px;margin:0 auto;padding-block:0 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:12px;color:var(--muted)}
+
+/* ---------- Tooltip ---------- */
+#tip{position:fixed;z-index:60;max-width:280px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:4px;box-shadow:0 6px 24px rgba(0,0,0,.18);padding:8px 10px;font-size:12px;line-height:1.45;pointer-events:none;display:flex;flex-direction:column;gap:1px}
+#tip strong{font-weight:600;font-size:12.5px;margin-bottom:2px}
+#tip span{color:var(--ink-2)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1240px){ .kpis{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:1100px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .fpane{order:-1;width:auto;position:static;max-height:none}
+  .fpane.collapsed{width:auto}
+  .fpane.collapsed .fp-h{padding:10px 12px;justify-content:space-between}
+  .fpane.collapsed .fp-title{writing-mode:horizontal-tb;transform:none}
+  .fpane.collapsed .fp-title svg{transform:rotate(-90deg)}
+  .fp-body{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+  .fp-scope,.fp-note{grid-column:1/-1}
+}
+@media (max-width:980px){
+  .span-3,.span-4,.span-5,.span-7,.span-8{grid-column:1/-1}
+  .plan{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .kpis,.kpis.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi-v{font-size:24px}
+  .tl-row,.cb-row{grid-template-columns:minmax(0,1fr);gap:4px}
+  .tl-axisrow .tl-label,.cb-axisrow .cb-label{display:none}
+  .tick.odd{display:none}
+  .xp{grid-template-columns:minmax(0,1fr);gap:8px}
+  .xp-when{flex-direction:row;flex-wrap:wrap;gap:4px 10px}
+  .fp-body{grid-template-columns:1fr}
+  .qa-row{grid-template-columns:1fr}
+  .qa-metric{border-right:0;padding-right:0;flex-direction:row;align-items:baseline;gap:8px}
+  .qa-ml{max-width:none}
+  .brand p{display:none}
+  .refresh{display:none}
+}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+<header class="appbar">
+  <div class="appbar-in">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="13" width="5" height="9" rx="1"/><rect x="9.5" y="7" width="5" height="15" rx="1"/><rect x="17" y="2" width="5" height="20" rx="1"/></svg>
+      <div>
+        <h1>Adrian Rusu <span>· Service Review</span></h1>
+        <p>Candidate report for Service Management Coordinator, ENGIE Global Business Services, Romania</p>
+      </div>
+    </div>
+    <div class="bar-meta">
+      <span class="refresh" id="refresh">Data refreshed</span>
+      <button class="btn-ghost" id="fp-toggle" aria-controls="fpane" aria-expanded="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg>
+        Filters <span class="count" id="fcount" hidden>0</span>
+      </button>
+      <button class="btn-ghost btn-icon" id="theme-toggle" aria-pressed="false" aria-label="Dark mode" title="Switch to dark mode">
+        <svg class="th-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        <svg class="th-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn-cta" href="#contact">Contact Adrian</a>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Report pages">
+    <div class="tabs-in">
+      <a class="tab" href="#overview" data-tab="overview"><span class="pn">1</span>Overview</a>
+      <a class="tab" href="#experience" data-tab="experience"><span class="pn">2</span>Experience</a>
+      <a class="tab" href="#fit" data-tab="fit"><span class="pn">3</span>Role fit</a>
+      <a class="tab" href="#improvement" data-tab="improvement"><span class="pn">4</span>Continuous improvement</a>
+      <a class="tab" href="#profile" data-tab="profile"><span class="pn">5</span>Profile &amp; contact</a>
+    </div>
+  </nav>
+</header>
+
+<div class="shell">
+  <main id="main" style="min-width:0">
+
+    <!-- ================= OVERVIEW ================= -->
+    <section class="canvas" data-page="overview" aria-labelledby="h-overview">
+      <div class="pagehead span-12">
+        <div>
+          <h2 id="h-overview">Overview</h2>
+          <p>Eleven years of operations, service delivery and reporting, laid out like a service performance report. Click a bar in the timeline to cross-filter the page.</p>
+        </div>
+        <span class="scope" id="ov-scope"></span>
+      </div>
+
+      <div class="kpis span-12" id="kpis"></div>
+
+      <article class="vis span-8" data-vis="timeline">
+        <header class="vis-h">
+          <div><h3 class="vis-t">Career timeline</h3><p class="vis-s">Each role from start to end month. Click a bar to select it.</p></div>
+          <div class="legend"><span class="lg"><i class="sw energy"></i>Energy</span><span class="lg"><i class="sw it"></i>IT services</span><span class="lg"><i class="sw now"></i>Today</span></div>
+          <div class="vis-tools">
+            <button class="vt" data-vt="table" aria-pressed="false" title="Show as a table" aria-label="Show career timeline as a table"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></svg></button>
+            <button class="vt" data-vt="focus" aria-pressed="false" title="Focus mode" aria-label="Open career timeline in focus mode"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+          </div>
+        </header>
+        <div class="vis-b"><div class="viz-chart" id="tl-chart"></div><div class="viz-table" id="tl-table" hidden></div></div>
+      </article>
+
+      <article class="vis span-4" data-vis="role" aria-live="polite">
+        <header class="vis-h"><div><h3 class="vis-t">Role details</h3><p class="vis-s">Follows the role selected in the timeline</p></div></header>
+        <div class="vis-b" id="role-detail"></div>
+      </article>
+
+      <article class="vis span-7" data-vis="comp">
+        <header class="vis-h">
+          <div><h3 class="vis-t">Competencies the role asks for</h3><p class="vis-s">Years practised in roles where the CV shows that competency, split by role</p></div>
+          <div class="legend"><span class="lg"><i class="sw energy"></i>Energy</span><span class="lg"><i class="sw it"></i>IT services</span><span class="lg"><i class="sw target"></i>JD minimum, 4 yrs</span></div>
+          <div class="vis-tools">
+            <button class="vt" data-vt="table" aria-pressed="false" title="Show as a table" aria-label="Show competencies as a table"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></svg></button>
+            <button class="vt" data-vt="focus" aria-pressed="false" title="Focus mode" aria-label="Open competencies in focus mode"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+          </div>
+        </header>
+        <div class="vis-b"><div class="viz-chart" id="comp-chart"></div><div class="viz-table" id="comp-table" hidden></div></div>
+      </article>
+
+      <article class="vis span-5" data-vis="mix">
+        <header class="vis-h"><div><h3 class="vis-t">Experience mix</h3><p class="vis-s">Share of professional time since April 2015</p></div></header>
+        <div class="vis-b" id="mix-chart"></div>
+      </article>
+
+      <article class="vis span-5" data-vis="tools">
+        <header class="vis-h">
+          <div><h3 class="vis-t">Tools and platforms by role</h3><p class="vis-s">As listed in the CV</p></div>
+          <div class="legend"><span class="lg"><i class="sw energy"></i>Energy</span><span class="lg"><i class="sw it"></i>IT services</span></div>
+        </header>
+        <div class="vis-b"><div class="tbl-wrap" id="tools-chart"></div></div>
+      </article>
+
+      <article class="vis span-7" data-vis="qa">
+        <header class="vis-h"><div><h3 class="vis-t">Q&amp;A</h3><p class="vis-s">Ask the CV a question in plain words</p></div></header>
+        <div class="vis-b">
+          <form class="qa-form" id="qa-form" autocomplete="off">
+            <label for="qa-input" class="sr">Ask a question about Adrian's experience</label>
+            <input id="qa-input" name="q" type="text" value="Power BI experience" placeholder="Try: ITIL, French, internal control, team size">
+            <button class="btn" type="submit">Ask</button>
+          </form>
+          <div class="chips" id="qa-chips"></div>
+          <div class="qa-ans" id="qa-ans" aria-live="polite"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="canvas" data-page="experience" aria-labelledby="h-experience" hidden>
+      <div class="pagehead span-12">
+        <div>
+          <h2 id="h-experience">Experience</h2>
+          <p>Every role as a service line. Each achievement is tagged with the competency it proves from the job description. Click a tag to filter.</p>
+        </div>
+        <span class="scope" id="xp-scope"></span>
+      </div>
+      <div class="xp-list span-8" id="xp-list"></div>
+      <div class="side span-4">
+        <article class="vis">
+          <header class="vis-h"><div><h3 class="vis-t">Filter by competency</h3><p class="vis-s">Number of tagged achievements</p></div></header>
+          <div class="vis-b"><div class="chips" id="xp-comps" style="margin-top:0"></div></div>
+        </article>
+        <article class="vis">
+          <header class="vis-h"><div><h3 class="vis-t">Time by employer</h3><p class="vis-s">Computed from role dates</p></div></header>
+          <div class="vis-b"><div class="tbl-wrap" id="xp-employers"></div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= ROLE FIT ================= -->
+    <section class="canvas" data-page="fit" aria-labelledby="h-fit" hidden>
+      <div class="pagehead span-12">
+        <div>
+          <h2 id="h-fit">Role fit</h2>
+          <p>Every responsibility and requirement in the job description, traced to evidence in the CV and kept like a control register. Status is self-assessed; partial items carry a bridge, the way a remediation plan would.</p>
+        </div>
+        <span class="scope">Page filters only. Industry and competency filters don't apply here.</span>
+      </div>
+      <div class="kpis four span-12" id="fit-kpis"></div>
+      <article class="vis span-7">
+        <header class="vis-h">
+          <div><h3 class="vis-t">Coverage by section of the job description</h3><p class="vis-s">Count of items</p></div>
+          <div class="legend"><span class="lg"><i class="sw good"></i>Met or exceeded</span><span class="lg"><i class="sw warn"></i>Partial</span></div>
+        </header>
+        <div class="vis-b"><div class="mix" id="fit-bars"></div></div>
+      </article>
+      <article class="vis span-5">
+        <header class="vis-h"><div><h3 class="vis-t">Open items</h3><p class="vis-s">Partial matches and how they are bridged</p></div></header>
+        <div class="vis-b" id="fit-open"></div>
+      </article>
+      <article class="vis span-12" data-vis="register">
+        <header class="vis-h">
+          <div><h3 class="vis-t">Requirement traceability register</h3><p class="vis-s" id="reg-count"></p></div>
+          <div class="vis-tools">
+            <button class="vt" data-vt="focus" aria-pressed="false" title="Focus mode" aria-label="Open the register in focus mode"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+          </div>
+        </header>
+        <div class="vis-b">
+          <div class="filterrow">
+            <div class="fgroup" role="group" aria-label="Section"><span class="fl">Section</span>
+              <button class="chip" data-fit-type="all" aria-pressed="true">All</button>
+              <button class="chip" data-fit-type="resp" aria-pressed="false">What you'll do</button>
+              <button class="chip" data-fit-type="req" aria-pressed="false">What you bring</button>
+            </div>
+            <div class="fgroup" role="group" aria-label="Status"><span class="fl">Status</span>
+              <button class="chip" data-fit-st="all" aria-pressed="true">All</button>
+              <button class="chip" data-fit-st="exceeds" aria-pressed="false">Exceeds</button>
+              <button class="chip" data-fit-st="met" aria-pressed="false">Met</button>
+              <button class="chip" data-fit-st="partial" aria-pressed="false">Partial</button>
+            </div>
+          </div>
+          <div class="tbl-wrap" id="reg"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= CONTINUOUS IMPROVEMENT ================= -->
+    <section class="canvas" data-page="improvement" aria-labelledby="h-ci" hidden>
+      <div class="pagehead span-12">
+        <div>
+          <h2 id="h-ci">Continuous improvement</h2>
+          <p>Improvement work from the CV, sorted by the levers the job names: automation, standardization and digitalization, plus people. Each bar spans the role in which the initiative ran.</p>
+        </div>
+        <span class="scope" id="ci-scope"></span>
+      </div>
+      <article class="vis span-8" data-vis="ci">
+        <header class="vis-h">
+          <div><h3 class="vis-t">Improvement log by lever</h3><p class="vis-s">Click a bar to see the outcome</p></div>
+          <div class="legend"><span class="lg"><i class="sw energy"></i>Energy</span><span class="lg"><i class="sw it"></i>IT services</span></div>
+          <div class="vis-tools">
+            <button class="vt" data-vt="table" aria-pressed="false" title="Show as a table" aria-label="Show improvement log as a table"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></svg></button>
+            <button class="vt" data-vt="focus" aria-pressed="false" title="Focus mode" aria-label="Open improvement log in focus mode"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+          </div>
+        </header>
+        <div class="vis-b"><div class="viz-chart" id="ci-chart"></div><div class="viz-table" id="ci-table" hidden></div></div>
+      </article>
+      <article class="vis span-4 ci-d" aria-live="polite">
+        <header class="vis-h"><div><h3 class="vis-t">Initiative details</h3><p class="vis-s">Follows the bar selected in the log</p></div></header>
+        <div class="vis-b" id="ci-detail"></div>
+      </article>
+      <article class="vis span-12">
+        <header class="vis-h"><div><h3 class="vis-t">Proposed first 90 days as Service Management Coordinator</h3><p class="vis-s">How the same habits would carry into GBS governance</p></div></header>
+        <div class="vis-b">
+          <div class="plan">
+            <div class="phase"><div class="phase-k">Days 1–30</div><h4>Learn the system</h4>
+              <ul>
+                <li>Map the GBS service catalogue, service lines, SLAs and KPI definitions.</li>
+                <li>Sit in on each governance routine once: service reviews, control check-ins, incident reviews.</li>
+                <li>Meet the control owners in France and Belgium and agree how and when we report.</li>
+              </ul></div>
+            <div class="phase"><div class="phase-k">Days 31–60</div><h4>Make performance visible</h4>
+              <ul>
+                <li>Baseline KPI and SLA trends and build one Power BI service pack shared by all service lines.</li>
+                <li>Automate the data refresh and remove manual steps from the monthly pack.</li>
+                <li>Set up a single tracker for remediation actions, with owners and due dates.</li>
+              </ul></div>
+            <div class="phase"><div class="phase-k">Days 61–90</div><h4>Run the rhythm, then improve it</h4>
+              <ul>
+                <li>Run the service review cycle from the new pack and escalate risks with data behind them.</li>
+                <li>Start post-incident reviews on a standard template, with trend analysis across incidents.</li>
+                <li>Propose the first automation and standardization backlog, with the effort each item saves.</li>
+              </ul></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= PROFILE ================= -->
+    <section class="canvas" data-page="profile" aria-labelledby="h-profile" hidden>
+      <div class="pagehead span-12">
+        <div>
+          <h2 id="h-profile">Profile &amp; contact</h2>
+          <p>Education, languages and self-assessed skills, with the details to set up an interview.</p>
+        </div>
+      </div>
+      <article class="vis span-5 idc" id="contact">
+        <h3>Adrian Rusu</h3>
+        <p class="hl">Operations and service delivery leader · IT services and energy · Bucharest</p>
+        <p class="stmt" id="stmt"></p>
+        <div class="contact">
+          <div class="ct"><span class="ct-k">E-mail</span><span class="ct-v" id="ct-mail">rusu.adrianm@gmail.com</span><button class="cp" data-copy="ct-mail">Copy</button></div>
+          <div class="ct"><span class="ct-k">Phone</span><span class="ct-v" id="ct-phone">+40 745 018 102</span><button class="cp" data-copy="ct-phone">Copy</button></div>
+          <div class="ct"><span class="ct-k">LinkedIn</span><span class="ct-v" id="ct-li"><a href="https://www.linkedin.com/in/adrian-marian-rusu-19982191" target="_blank" rel="noopener">linkedin.com/in/adrian-marian-rusu-19982191</a></span><button class="cp" data-copy="ct-li">Copy</button></div>
+          <div class="ct"><span class="ct-k">Location</span><span class="ct-v">Bucharest, Romania · open to hybrid</span><span></span></div>
+        </div>
+      </article>
+      <article class="vis span-7">
+        <header class="vis-h"><div><h3 class="vis-t">Education</h3><p class="vis-s">Four degrees across management and engineering</p></div></header>
+        <div class="vis-b"><ul class="edu" id="edu"></ul></div>
+      </article>
+      <article class="vis span-4">
+        <header class="vis-h"><div><h3 class="vis-t">Languages</h3><p class="vis-s">Self-assessed</p></div></header>
+        <div class="vis-b"><div class="meters" id="langs"></div></div>
+      </article>
+      <article class="vis span-5">
+        <header class="vis-h"><div><h3 class="vis-t">Skills</h3><p class="vis-s">Self-assessed, five-step scale</p></div></header>
+        <div class="vis-b"><div class="meters" id="skills"></div></div>
+      </article>
+      <article class="vis span-3">
+        <header class="vis-h"><div><h3 class="vis-t">Beyond work</h3></div></header>
+        <div class="vis-b"><div class="bw">
+          <div><b>New technologies</b><span>Always keen to talk about what is new and how it could be used.</span></div>
+          <div><b>Travel</b><span>Visiting and getting to know new places.</span></div>
+        </div></div>
+      </article>
+    </section>
+  </main>
+
+  <aside class="fpane" id="fpane" aria-label="Filters">
+    <div class="fp-h">
+      <button class="fp-title" id="fp-collapse" aria-expanded="true" aria-controls="fp-body">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>Filters
+      </button>
+      <button class="link" id="fp-clear" style="font-size:12px">Clear all</button>
+    </div>
+    <div class="fp-body" id="fp-body">
+      <p class="fp-scope">Filters on all pages</p>
+      <div class="fcard">
+        <div class="fcard-h">Industry <span class="fval" id="ind-val">is (All)</span></div>
+        <div class="seg" role="group" aria-label="Industry">
+          <button data-ind="all" aria-pressed="true">All</button>
+          <button data-ind="energy" aria-pressed="false">Energy</button>
+          <button data-ind="it" aria-pressed="false">IT services</button>
+        </div>
+      </div>
+      <div class="fcard">
+        <div class="fcard-h">Competency <span class="fval" id="comp-val">is (All)</span></div>
+        <div class="checks" id="comp-checks"></div>
+      </div>
+      <p class="fp-note">Selections in a chart cross-filter the other visuals on that page.</p>
+    </div>
+  </aside>
+</div>
+
+<footer class="note" id="foot"></footer>
+<div id="tip" role="tooltip" hidden></div>
+<div class="scrim" id="scrim" hidden></div>
+
+<script>
+(function(){
+"use strict";
+/* ---------------- Data from the CV ---------------- */
+const NOW = new Date();
+const NOW_YM = NOW.getFullYear()*12 + NOW.getMonth();
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const ym = s => { const p = s.split('-').map(Number); return p[0]*12 + (p[1]-1); };
+const fmtYM = v => MON[v%12] + ' ' + Math.floor(v/12);
+const endYM = r => r.end ? ym(r.end) : NOW_YM;
+const months = r => endYM(r) - ym(r.start);
+const yrs = m => (m/12).toFixed(1);
+const fmtDur = m => { const y = Math.floor(m/12), mo = m%12; const a = []; if (y) a.push(y + (y>1?' yrs':' yr')); if (mo) a.push(mo + ' mo'); return a.join(' ') || '0 mo'; };
+const fmtRange = r => fmtYM(ym(r.start)) + ' – ' + (r.end ? fmtYM(ym(r.end)) : 'present');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $ = id => document.getElementById(id);
+
+const IND = { energy:'Energy', it:'IT services' };
+const COMPS = [
+  { id:'sm',   name:'Service management & ITIL' },
+  { id:'bi',   name:'KPI dashboards & Power BI' },
+  { id:'gov',  name:'Governance & internal control' },
+  { id:'risk', name:'Incident & risk management' },
+  { id:'stk',  name:'Stakeholder management' },
+  { id:'ci',   name:'Continuous improvement' },
+  { id:'lead', name:'People leadership' }
+];
+const COMP = Object.fromEntries(COMPS.map(c => [c.id, c]));
+
+const ROLES = [
+  { id:'vois', title:'IoT IT Service Support Team Lead', short:'_VOIS', org:'_VOIS', orgNote:'Vodafone Intelligent Solutions', city:'Bucharest', start:'2023-05', end:null, ind:'it', fn:'lead',
+    scope:'Service operations for enterprise IoT customers, inside Vodafone Group’s shared services organization.',
+    tools:['ServiceNow','ITSM','PagerDuty','Grafana','AWS Console','Power BI'],
+    bullets:[
+      { t:'Lead the team that runs IoT service operations for enterprise customers: incident management, SLA performance, monitoring and first-line troubleshooting.', c:['sm','risk','lead'] },
+      { t:'Run day-to-day operations on ITIL practices, with tickets in ServiceNow, on-call escalation through PagerDuty and monitoring in Grafana and the AWS Console.', c:['sm','risk'] },
+      { t:'Built Power BI dashboards and automated reporting that made operations visible and cut manual reporting effort.', c:['bi','ci'] },
+      { t:'Built a team culture of initiative, continuous learning and knowledge sharing, so the team picked up new technologies and ITIL practice quickly.', c:['lead','ci'] }
+    ]},
+  { id:'agency', title:'Agency Manager', short:'Agency Mgr', org:'Distrigaz Sud Rețele', orgNote:'ENGIE group', city:'Constanța', start:'2021-09', end:'2023-05', ind:'energy', fn:'lead',
+    scope:'Investment works in the Constanța area: inspection, compliance and delivery of the investment plan.',
+    tools:['SAP','Power BI','Microsoft 365','Excel VBA','Python'],
+    bullets:[
+      { t:'Led the team that followed and inspected investment works in the area, checking compliance with legal requirements and internal regulations and procedures.', c:['gov','lead'] },
+      { t:'Aligned builders and partners, with no line authority over them, to meet deadlines and obligations and deliver the area’s investment plan.', c:['stk'] },
+      { t:'Built BI tools to monitor the activity, then used them to optimize the process and raise efficiency.', c:['bi','ci'] }
+    ]},
+  { id:'planning', title:'Operational Planning Team Lead', short:'Planning TL', org:'Distrigaz Sud Rețele', orgNote:'ENGIE group', city:'Bucharest', start:'2018-07', end:'2021-09', ind:'energy', fn:'lead',
+    scope:'Field-operations planning for gas distribution network maintenance across Bucharest and Ilfov.',
+    tools:['SAP'],
+    bullets:[
+      { t:'Led and developed a team of 30+ people planning field operations for gas distribution network maintenance across Bucharest and Ilfov.', c:['lead'] },
+      { t:'Planned customer service activities to keep client satisfaction high.', c:['sm','stk'] },
+      { t:'Kept planning data accurate by operating, updating and correcting the SAP database.', c:['gov'] },
+      { t:'Introduced continuous performance reviews and operational dashboards to track the planning team’s efficiency and effectiveness.', c:['bi','gov'] },
+      { t:'Developed and contributed to optimization projects that automated work and brought digital services to customers.', c:['ci'] }
+    ]},
+  { id:'design', title:'Gas Network Design Specialist', short:'Design', org:'Distrigaz Sud Rețele', orgNote:'ENGIE group', city:'Bucharest', start:'2016-06', end:'2018-07', ind:'energy', fn:'eng',
+    scope:'Technical design of access to the gas distribution network.',
+    tools:['GIS'],
+    bullets:[
+      { t:'Designed technical solutions for access to the gas distribution network.', c:[] },
+      { t:'Managed complex network studies.', c:[] },
+      { t:'Worked on optimizing a service-specific application.', c:['ci'] },
+      { t:'Provided GIS support to the office.', c:[] }
+    ]},
+  { id:'trainee', title:'Trainee', short:'Trainee', org:'Distrigaz Sud Rețele', orgNote:'ENGIE group', city:'Bucharest', start:'2015-07', end:'2016-06', ind:'energy', fn:'eng',
+    scope:'Traineeship in gas distribution.', tools:[], bullets:[] },
+  { id:'grdf', title:'Intern', short:'GRDF', org:'GRDF', orgNote:'ENGIE group', city:'Paris', start:'2015-04', end:'2015-07', ind:'energy', fn:'eng',
+    scope:'Internship in Paris, in gas distribution network design.', tools:[],
+    bullets:[ { t:'Worked on gas distribution network design.', c:[] } ] }
+];
+const ROLE = Object.fromEntries(ROLES.map(r => [r.id, r]));
+
+const TOOL_ROWS = ['ServiceNow','ITSM','PagerDuty','Grafana','AWS Console','Power BI','SAP','Excel VBA','Python','Microsoft 365','GIS'];
+const TOOL_COLS = ['vois','agency','planning','design'];
+const TOOL_YEARS = { vois:'2023–', agency:'2021–23', planning:'2018–21', design:'2016–18' };
+
+const START_YM = ym('2015-04');
+const TOTAL_M = NOW_YM - START_YM;
+const LEAD_M = NOW_YM - ym('2018-07');
+const ENGIE_M = ym('2023-05') - START_YM;
+const SS_M = NOW_YM - ym('2023-05');
+
+const REQS = [
+  { id:'R1', type:'resp', req:'Act as the local focal point for Service Management, aligned with global GBS governance standards and routines.', ev:'Runs ITIL-based service operations for enterprise IoT customers inside _VOIS, Vodafone Group’s shared services organization.', src:['vois'], st:'met' },
+  { id:'R2', type:'resp', req:'Prepare service performance dashboards tracking KPIs, SLAs and operational trends across service lines.', ev:'Owns SLA performance for the IoT support team and built the Power BI dashboards that track it. Ran operational dashboards for a 30+ person planning team.', src:['vois','planning'], st:'met' },
+  { id:'R3', type:'resp', req:'Design and improve automated reporting tools and self-service analytics in Power BI and similar platforms.', ev:'Automated Power BI reporting that cut manual effort at _VOIS; BI monitoring tools for investment works in Constanța; Excel VBA and Python for automation.', src:['vois','agency'], st:'met' },
+  { id:'R4', type:'resp', req:'Coordinate service review meetings, capture issues, risks and performance updates, and escalate when needed.', ev:'Introduced continuous performance reviews for the planning team. Runs incident escalation through PagerDuty at _VOIS.', src:['planning','vois'], st:'met' },
+  { id:'R5', type:'resp', req:'Monitor internal control activities, track remediation plans and liaise with control owners in France and Belgium.', ev:'Led compliance inspection of investment works against legal requirements and internal procedures. French at advanced level, with work and study in Paris.', bridge:'No formal internal-control role yet. Compliance inspection experience and French carry over directly to work with control owners in France and Belgium.', src:['agency','grdf'], st:'partial' },
+  { id:'R6', type:'resp', req:'Oversee incident and risk tracking, facilitate post-incident reviews and spot risks early through data analysis.', ev:'Leads incident management, monitoring and first-line troubleshooting, using Grafana and AWS Console data.', src:['vois'], st:'met' },
+  { id:'R7', type:'resp', req:'Identify and promote continuous improvement: automation, standardization and digitalization.', ev:'Seven improvement initiatives across four roles, from automated Power BI reporting to digital services for gas customers.', src:['vois','agency','planning','design'], st:'met' },
+  { id:'Q1', type:'req', req:'Bachelor’s degree in Business Administration, Data Analytics, Information Systems or a related field.', ev:'Bachelor’s in Management and Master in Management Consulting, both from ASE Bucharest, plus two engineering degrees.', src:[], st:'exceeds' },
+  { id:'Q2', type:'req', req:'4 to 6 years in Shared Services or a corporate environment, in service management, governance or business analytics.', ev: yrs(TOTAL_M) + ' years in corporate environments, ' + yrs(SS_M) + ' of them in a shared services organization.', src:['vois','agency','planning'], st:'exceeds' },
+  { id:'Q3', type:'req', req:'Proven ability to build dashboards and performance reports, with strong Power BI and Excel.', ev:'Dashboards and KPI reporting since 2018, Power BI in two companies, Excel VBA automation.', src:['vois','agency','planning'], st:'met' },
+  { id:'Q4', type:'req', req:'Strong stakeholder management; able to influence and align teams without direct authority.', ev:'Aligned external builders and partners, with no line authority over them, to deliver the Constanța investment plan.', src:['agency'], st:'met' },
+  { id:'Q5', type:'req', req:'Familiarity with ITIL methodologies.', ev:'Daily ITIL practice since 2023 across incident, SLA and monitoring work. Self-assessed upper intermediate.', src:['vois'], st:'met' },
+  { id:'Q6', type:'req', req:'Solid understanding of internal control frameworks such as COSO or SOX.', ev:'Applied internal regulations and procedures when inspecting investment works.', bridge:'No formal COSO or SOX work yet. Hands-on compliance control is the base; the framework itself is the first thing to formalize during onboarding.', src:['agency'], st:'partial' },
+  { id:'Q7', type:'req', req:'Analytical mindset: turn complex data into clear, actionable insight for leadership.', ev:'Team performance data analysis (self-assessed upper intermediate) and a Master in Management Consulting.', src:['planning'], st:'met' },
+  { id:'Q8', type:'req', req:'Fluent English; French is a valuable additional asset.', ev:'English fluent, French advanced, Spanish elementary.', src:['grdf'], st:'exceeds' },
+  { id:'Q9', type:'req', req:'Bucharest, hybrid working.', ev:'Based in Bucharest.', src:[], st:'met' }
+];
+const ST = {
+  exceeds:{ label:'Exceeds', cls:'good', icon:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l5.5 9.5h-11z" fill="currentColor"/></svg>' },
+  met:{ label:'Met', cls:'good', icon:'<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="currentColor"/><path d="M5 8.2l2 2 4-4.2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
+  partial:{ label:'Partial', cls:'warn', icon:'<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 2.2a5.8 5.8 0 0 1 0 11.6z" fill="currentColor"/></svg>' }
+};
+
+const LEVERS = { auto:'Automation', std:'Standardization', digi:'Digitalization', people:'People & culture' };
+const INITS = [
+  { id:'i1', lever:'auto',   role:'vois',     name:'Automated Power BI reporting for IoT operations', out:'Operations became visible in one place and manual reporting effort dropped.' },
+  { id:'i7', lever:'auto',   role:'design',   name:'Optimizing a service-specific application', out:'Contributed to improving the application used for network access work.' },
+  { id:'i4', lever:'std',    role:'planning', name:'Performance reviews and operational dashboards', out:'A continuous view of the 30+ person team’s efficiency and effectiveness.' },
+  { id:'i6', lever:'std',    role:'planning', name:'SAP planning data upkeep', out:'Accurate planning data in SAP, kept current through regular updates and corrections.' },
+  { id:'i3', lever:'digi',   role:'agency',   name:'BI monitoring of investment works', out:'Activity tracked in BI tools, which pointed to process optimizations and higher efficiency.' },
+  { id:'i5', lever:'digi',   role:'planning', name:'Automation and digital services for customers', out:'Manual steps automated and digital services offered to gas customers.' },
+  { id:'i2', lever:'people', role:'vois',     name:'Learning and knowledge-sharing routine', out:'The team picked up new technologies and ITIL practice quickly.' }
+];
+const INIT = Object.fromEntries(INITS.map(i => [i.id, i]));
+
+const EDU = [
+  { y:'2018', d:'Master in Management Consulting', s:'Bucharest University of Economic Studies (ASE)', jd:true },
+  { y:'2015', d:'Advanced Master in Gas Engineering and Management', s:'Mines ParisTech, Paris', jd:false },
+  { y:'2014', d:'Bachelor’s in Management', s:'Bucharest University of Economic Studies (ASE)', jd:true },
+  { y:'2013', d:'Bachelor’s in Civil Engineering', s:'Technical University of Civil Engineering Bucharest (UTCB)', jd:false }
+];
+const LANGS = [ ['English','Fluent',5], ['French','Advanced',4], ['Spanish','Elementary',2] ];
+const SKILLS = [ ['Leadership','Upper intermediate',4], ['ITIL framework','Upper intermediate',4], ['Power BI','Upper intermediate',4], ['Customer service','Upper intermediate',4], ['Team performance data analysis','Upper intermediate',4], ['AWS Cloud','Elementary',2], ['Python','Elementary',2], ['Linux','Elementary',2] ];
+
+/* ---------------- Q&A knowledge base ---------------- */
+const KB = [
+  { k:['power bi','powerbi','dashboard','dashboards','reporting','reports','bi','kpi','kpis','analytics','self-service','visual','visuals'],
+    m:() => yrs(LEAD_M) + ' yrs', ml:'dashboards and KPI reporting',
+    a:() => 'Dashboards and KPI reporting since 2018. At _VOIS (2023 to now): Power BI dashboards and automated reporting for IoT operations, with less manual reporting effort. At Distrigaz Sud Rețele: BI tools to monitor investment works (2021–23) and operational dashboards for a 30+ person planning team (2018–21). Self-assessed Power BI level: upper intermediate.',
+    refs:['vois','agency','planning'] },
+  { k:['itil','itsm','servicenow','service now','incident','incidents','sla','slas','pagerduty','on-call','service management','ticket','tickets','problem'],
+    m:() => yrs(SS_M) + ' yrs', ml:'daily ITIL practice',
+    a:() => 'Daily ITIL practice since May 2023 as IoT IT Service Support Team Lead at _VOIS: incident management, SLA performance, monitoring and first-line troubleshooting for enterprise customers, in ServiceNow, PagerDuty, Grafana and the AWS Console. Self-assessed ITIL level: upper intermediate.',
+    refs:['vois'] },
+  { k:['team','teams','people','lead','leader','leadership','manage','manager','managed','size','largest','30'],
+    m:() => '30+', ml:'largest team led',
+    a:() => 'Leading teams since July 2018 (' + yrs(LEAD_M) + ' years). Largest team: 30+ people planning field operations for gas network maintenance across Bucharest and Ilfov. Then Agency Manager in Constanța with the works inspection team, and now team lead for IoT service support at _VOIS.',
+    refs:['planning','agency','vois'] },
+  { k:['french','francais','language','languages','english','spanish','fluent','belgium','france','paris'],
+    m:() => 'FR', ml:'advanced, plus English fluent',
+    a:() => 'English: fluent. French: advanced, with an internship at GRDF in Paris and an Advanced Master at Mines ParisTech. Spanish: elementary. Ready to work day to day with control owners in France and Belgium.',
+    refs:['grdf'] },
+  { k:['engie','grdf','distrigaz','dsr','group','gas','energy','utility','utilities'],
+    m:() => yrs(ENGIE_M) + ' yrs', ml:'in ENGIE group companies',
+    a:() => 'About ' + Math.round(ENGIE_M/12) + ' years inside ENGIE group companies: intern at GRDF in Paris in 2015, then Distrigaz Sud Rețele in Romania from trainee to Agency Manager (2015–2023). That covers the gas distribution business from network design to field operations and investment works.',
+    refs:['grdf','trainee','design','planning','agency'] },
+  { k:['control','controls','internal control','coso','sox','compliance','audit','governance','regulation','regulations','procedures','remediation'],
+    m:() => '2', ml:'roles with compliance or data governance',
+    a:() => 'Hands-on compliance oversight as Agency Manager (2021–23): the team inspected investment works for compliance with legal requirements and internal procedures. Data governance of the SAP planning database (2018–21). Formal COSO or SOX work is a development area; the Role fit page shows how it is bridged.',
+    refs:['agency','planning'] },
+  { k:['stakeholder','stakeholders','partner','partners','influence','builders','contractors','without authority','alignment','align','customer','customers','client','clients'],
+    m:() => '2', ml:'roles managing external partners or customers',
+    a:() => 'As Agency Manager, aligned builders and partners, with no line authority over them, to meet deadlines and deliver the area’s investment plan. Today, works with enterprise IoT customers on SLA performance at _VOIS.',
+    refs:['agency','vois'] },
+  { k:['automation','automate','automated','improvement','improvements','continuous','digital','digitalization','digitalisation','optimization','optimisation','vba','excel','standardization','standardisation','efficiency'],
+    m:() => String(INITS.length), ml:'improvement initiatives',
+    a:() => INITS.length + ' improvement initiatives across four roles: automated Power BI reporting at _VOIS, BI monitoring of investment works, performance reviews and dashboards for the planning team, automation and digital services for customers, and work on a service application. Tools include Power BI, Excel VBA and Python.',
+    refs:['vois','agency','planning','design'] },
+  { k:['education','degree','degrees','master','masters','bachelor','university','study','studies','mines','ase','school','business','mba'],
+    m:() => '4', ml:'degrees',
+    a:() => 'Master in Management Consulting (ASE Bucharest, 2018), Advanced Master in Gas Engineering and Management (Mines ParisTech, 2015), Bachelor’s in Management (ASE Bucharest, 2014) and Bachelor’s in Civil Engineering (UTCB, 2013).',
+    refs:[] },
+  { k:['experience','years','year','how long','tenure','seniority','career','background','senior'],
+    m:() => yrs(TOTAL_M) + ' yrs', ml:'professional experience',
+    a:() => yrs(TOTAL_M) + ' years of professional experience since April 2015, ' + yrs(LEAD_M) + ' of them leading teams. The role asks for 4 to 6 years.',
+    refs:['vois','agency','planning','design','trainee','grdf'] },
+  { k:['location','bucharest','hybrid','where','based','relocate','relocation','office','remote'],
+    m:() => 'BUH', ml:'based in Bucharest',
+    a:() => 'Based in Bucharest. The role is hybrid in Bucharest, so no relocation is needed.',
+    refs:[] },
+  { k:['aws','cloud','linux','grafana','monitoring','iot','technology','technologies','tech','python','tools','stack','sap'],
+    m:() => String(TOOL_ROWS.length), ml:'tools and platforms in the CV',
+    a:() => 'ServiceNow, PagerDuty, Grafana and the AWS Console for IoT operations; SAP, Power BI, Excel VBA and Python in the energy roles; GIS in network design. Self-assessed AWS Cloud, Python and Linux: elementary.',
+    refs:['vois','agency'] },
+  { k:['contact','email','e-mail','mail','phone','linkedin','reach','interview','call','hire'],
+    m:() => '3', ml:'ways to get in touch',
+    a:() => 'E-mail rusu.adrianm@gmail.com, phone +40 745 018 102, or LinkedIn. All three are on the Profile & contact page.',
+    refs:[] }
+];
+const QA_SUGGEST = ['Power BI experience','ITIL and incidents','Internal control','French level','Links to ENGIE','Largest team led','Automation work','Education'];
+
+/* ---------------- State ---------------- */
+const state = { page:'overview', ind:'all', comps:new Set(), role:null, init:'i1', fitType:'all', fitSt:'all', q:'Power BI experience' };
+
+const roleHasComp = (r, cid) => r.bullets.some(b => b.c.includes(cid));
+const roleMatches = r => (state.ind === 'all' || r.ind === state.ind) && (state.comps.size === 0 || [...state.comps].some(c => roleHasComp(r, c)));
+const compMonths = cid => ROLES.filter(r => roleHasComp(r, cid)).reduce((s, r) => s + months(r), 0);
+const compCount = cid => ROLES.reduce((s, r) => s + r.bullets.filter(b => b.c.includes(cid)).length, 0);
+const filterCount = () => (state.ind !== 'all' ? 1 : 0) + (state.comps.size ? 1 : 0);
+
+/* ---------------- Shared timeline renderer ---------------- */
+const DOM_S = 2015*12, DOM_E = (NOW.getFullYear()+1)*12;
+function timeline(rows, kind){
+  const span = DOM_E - DOM_S, years = span/12;
+  const pct = v => ((v - DOM_S) / span * 100).toFixed(3) + '%';
+  let h = '<div class="tl" style="--years:' + years + '">';
+  let lastGroup = null;
+  rows.forEach(r => {
+    if (r.group && r.group !== lastGroup){ h += '<div class="tl-group">' + esc(r.group) + '</div>'; lastGroup = r.group; }
+    const s = ym(r.start), e = r.end ? ym(r.end) : NOW_YM;
+    const w = Math.max((e - s) / span * 100, .6);
+    h += '<div class="tl-row' + (r.dim ? ' is-dim' : '') + (r.sel ? ' is-sel' : '') + '">' +
+      '<div class="tl-label"><span class="tl-name">' + esc(r.label) + '</span><span class="tl-sub">' + esc(r.sub) + '</span></div>' +
+      '<div class="tl-track"><span class="tl-now" style="left:' + pct(NOW_YM) + '"></span>' +
+      '<button class="tl-bar ' + r.ind + '" style="left:' + pct(s) + ';width:' + w.toFixed(3) + '%" data-kind="' + kind + '" data-id="' + r.id + '" aria-pressed="' + (!!r.sel) + '" aria-label="' + esc(r.aria) + '" data-tip="' + esc(r.tip) + '"></button>' +
+      '</div></div>';
+  });
+  h += '<div class="tl-row tl-axisrow"><div class="tl-label"></div><div class="tl-axis">';
+  for (let y = DOM_S/12; y < DOM_E/12; y++) h += '<span class="tick' + (y % 2 ? ' odd' : '') + '" style="left:' + pct(y*12) + '">' + y + '</span>';
+  h += '</div></div></div>';
+  return h;
+}
+const tableHTML = (head, rows, numCols) => '<div class="tbl-wrap"><table><thead><tr>' + head.map((x, i) => '<th scope="col"' + ((numCols||[]).includes(i) ? ' class="num"' : '') + '>' + esc(x) + '</th>').join('') + '</tr></thead><tbody>' +
+  rows.map(r => '<tr>' + r.map((x, i) => '<td' + ((numCols||[]).includes(i) ? ' class="num"' : '') + '>' + esc(x) + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>';
+
+/* ---------------- Overview ---------------- */
+function renderKpis(){
+  const met = REQS.filter(r => r.st !== 'partial').length;
+  const check = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  $('kpis').innerHTML = [
+    '<div class="kpi"><span class="kpi-l">Professional experience</span><span class="kpi-v">' + yrs(TOTAL_M) + '<small>yrs</small></span><span class="kpi-s">Since April 2015</span><span class="tgt">' + check + 'Role asks for 4–6</span></div>',
+    '<div class="kpi"><span class="kpi-l">Leading teams</span><span class="kpi-v">' + yrs(LEAD_M) + '<small>yrs</small></span><span class="kpi-s">Team lead or manager since July 2018</span></div>',
+    '<div class="kpi"><span class="kpi-l">Largest team led</span><span class="kpi-v">30+</span><span class="kpi-s">Field planning, Bucharest and Ilfov</span></div>',
+    '<div class="kpi"><span class="kpi-l">In ENGIE group companies</span><span class="kpi-v">' + yrs(ENGIE_M) + '<small>yrs</small></span><span class="kpi-s">GRDF Paris, Distrigaz Sud Rețele</span></div>',
+    '<div class="kpi"><span class="kpi-l">Shared services and ITIL</span><span class="kpi-v">' + yrs(SS_M) + '<small>yrs</small></span><span class="kpi-s">_VOIS, ServiceNow, PagerDuty</span></div>',
+    '<a class="kpi" href="#fit"><span class="kpi-l">Role requirements covered</span><span class="kpi-v">' + met + '<small>of ' + REQS.length + '</small></span><span class="kpi-s">' + (REQS.length - met) + ' partial, self-assessed. Open the register →</span></a>'
+  ].join('');
+}
+
+function renderTimeline(){
+  const rows = ROLES.map(r => ({
+    id:r.id, label:r.title, sub:r.org + ' · ' + fmtDur(months(r)), start:r.start, end:r.end, ind:r.ind,
+    dim: !roleMatches(r) || (state.role && state.role !== r.id), sel: state.role === r.id,
+    aria: r.title + ', ' + r.org + ', ' + fmtRange(r),
+    tip: r.title + '||' + r.org + ' (' + r.orgNote + '), ' + r.city + '||' + fmtRange(r) + ' · ' + fmtDur(months(r)) + '||' + IND[r.ind]
+  }));
+  $('tl-chart').innerHTML = timeline(rows, 'role');
+  $('tl-table').innerHTML = tableHTML(['Role','Company','City','Start','End','Duration','Industry'],
+    ROLES.map(r => [r.title, r.org, r.city, fmtYM(ym(r.start)), r.end ? fmtYM(ym(r.end)) : 'present', fmtDur(months(r)), IND[r.ind]]));
+}
+
+function renderRoleDetail(){
+  const r = ROLE[state.role || 'vois'];
+  $('role-detail').innerHTML =
+    '<div class="rd-k">' + (state.role ? 'Selected role' : 'Current role') + '</div>' +
+    '<h4 class="rd-t">' + esc(r.title) + '</h4>' +
+    '<div class="rd-o">' + esc(r.org) + ' · ' + esc(r.orgNote) + ' · ' + esc(r.city) + '</div>' +
+    '<div class="rd-meta"><span class="ichip"><i class="sw ' + r.ind + '"></i>' + IND[r.ind] + '</span><span>' + fmtRange(r) + '</span><span>' + fmtDur(months(r)) + '</span></div>' +
+    '<p class="rd-scope">' + esc(r.scope) + '</p>' +
+    (r.bullets.length ? '<ul class="rd-list">' + r.bullets.map(b => '<li>' + esc(b.t) + '</li>').join('') + '</ul>' : '') +
+    (r.tools.length ? '<div class="tools">' + r.tools.map(t => '<span class="tool">' + esc(t) + '</span>').join('') + '</div>' : '') +
+    '<div class="rd-act">' + (state.role ? '<button class="link" data-do="clear-role">Clear selection</button>' : '') + '<a class="link" href="#xp-' + r.id + '">Open in Experience →</a></div>';
+}
+
+function renderComp(){
+  const maxY = Math.max(12, Math.ceil(TOTAL_M/12/2)*2);
+  const maxM = maxY*12;
+  const list = COMPS.filter(c => state.comps.size === 0 || state.comps.has(c.id));
+  let h = '<div style="--steps:' + (maxY/2) + '">';
+  list.forEach(c => {
+    const rs = ROLES.filter(r => roleHasComp(r, c.id)).sort((a, b) => ym(a.start) - ym(b.start));
+    const tot = rs.reduce((s, r) => s + months(r), 0);
+    const segs = rs.map(r => {
+      const faded = !(state.ind === 'all' || r.ind === state.ind) || (state.role && state.role !== r.id);
+      return '<span class="cb-seg ' + r.ind + (faded ? ' faded' : '') + '" style="flex:' + months(r) + ' 1 0" tabindex="0" data-tip="' + esc(c.name + '||' + r.title + ', ' + r.org + '||' + yrs(months(r)) + ' yrs · ' + fmtRange(r)) + '"></span>';
+    }).join('');
+    h += '<div class="cb-row"><div class="cb-label">' + esc(c.name) + '</div>' +
+      '<div class="cb-track"><span class="cb-grid"></span>' +
+      '<div class="cb-bar" style="width:calc(' + (tot/maxM*100).toFixed(3) + '% - 4px)">' + segs + '</div>' +
+      '<span class="cb-v">' + yrs(tot) + ' yrs</span>' +
+      '<span class="cb-target" style="left:' + (48/maxM*100).toFixed(3) + '%"></span></div></div>';
+  });
+  if (!list.length) h += '<p class="xp-hidden">No competency selected.</p>';
+  h += '<div class="cb-row cb-axisrow"><div class="cb-label">.</div><div class="cb-axis">';
+  for (let y = 0; y <= maxY; y += 2) h += '<span style="left:' + (y/maxY*100) + '%' + (y === maxY ? ';transform:translateX(-100%)' : '') + '">' + y + (y === maxY ? ' yrs' : '') + '</span>';
+  h += '</div></div></div>';
+  $('comp-chart').innerHTML = h;
+  $('comp-table').innerHTML = tableHTML(['Competency','Years','Roles','Tagged achievements'],
+    list.map(c => [c.name, yrs(compMonths(c.id)), ROLES.filter(r => roleHasComp(r, c.id)).map(r => r.short).join(', '), String(compCount(c.id))]), [1,3]);
+}
+
+function renderMix(){
+  const energy = ROLES.filter(r => r.ind === 'energy').reduce((s, r) => s + months(r), 0);
+  const it = TOTAL_M - energy;
+  const eng = ROLES.filter(r => r.fn === 'eng').reduce((s, r) => s + months(r), 0);
+  const lead = TOTAL_M - eng;
+  const part = (cls, m, name) => {
+    const share = m / TOTAL_M;
+    const label = share >= .16 ? yrs(m) + ' yrs' : '';
+    return '<span class="' + cls + '" style="flex:' + m + ' 1 0" tabindex="0" data-tip="' + esc(name + '||' + yrs(m) + ' yrs · ' + Math.round(share*100) + '% of the career') + '" aria-label="' + esc(name + ', ' + yrs(m) + ' years, ' + Math.round(share*100) + ' percent') + '">' + label + '</span>';
+  };
+  $('mix-chart').innerHTML = '<div class="mix">' +
+    '<div><div class="mix-h"><span><b>By industry</b></span><span>' + yrs(TOTAL_M) + ' yrs</span></div>' +
+    '<div class="segbar">' + part('energy', energy, 'Energy') + part('it', it, 'IT services') + '</div>' +
+    '<div class="legend"><span class="lg"><i class="sw energy"></i>Energy ' + Math.round(energy/TOTAL_M*100) + '%</span><span class="lg"><i class="sw it"></i>IT services ' + Math.round(it/TOTAL_M*100) + '%</span></div></div>' +
+    '<div><div class="mix-h"><span><b>By function</b></span><span>' + yrs(TOTAL_M) + ' yrs</span></div>' +
+    '<div class="segbar">' + part('eng', eng, 'Engineering and design') + part('lead', lead, 'Team leadership') + '</div>' +
+    '<div class="legend"><span class="lg"><i class="sw eng"></i>Engineering and design ' + Math.round(eng/TOTAL_M*100) + '%</span><span class="lg"><i class="sw lead"></i>Team leadership ' + Math.round(lead/TOTAL_M*100) + '%</span></div></div>' +
+    '<p class="mix-note">Moved from technical design into leading operations teams in 2018, then from energy into IT shared services in 2023.</p>' +
+    '</div>';
+}
+
+function renderTools(){
+  const colCls = id => { const r = ROLE[id]; const c = []; if (!roleMatches(r) || (state.role && state.role !== id)) c.push('dim'); if (state.role === id) c.push('sel'); return c.join(' '); };
+  let h = '<table class="matrix"><thead><tr><th scope="col">Tool</th>' + TOOL_COLS.map(id => '<th scope="col" class="' + colCls(id) + '"><span class="mx-role">' + esc(ROLE[id].short) + '</span><span class="mx-yr">' + TOOL_YEARS[id] + '</span></th>').join('') + '</tr></thead><tbody>';
+  TOOL_ROWS.forEach(t => {
+    h += '<tr><th scope="row" style="font-weight:400;border-bottom:1px solid var(--grid)">' + esc(t) + '</th>' + TOOL_COLS.map(id => {
+      const r = ROLE[id];
+      const used = r.tools.includes(t);
+      return '<td class="' + colCls(id) + '">' + (used ? '<span class="dot ' + r.ind + '" tabindex="0" data-tip="' + esc(t + '||' + r.title + ', ' + r.org + '||' + fmtRange(r)) + '"></span><span class="sr">Used</span>' : '') + '</td>';
+    }).join('') + '</tr>';
+  });
+  $('tools-chart').innerHTML = h + '</tbody></table>';
+}
+
+function qaMatch(q){
+  const s = q.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
+  const toks = s.split(/[^a-z0-9+-]+/).filter(Boolean);
+  let best = null, bestScore = 0;
+  KB.forEach(item => {
+    let sc = 0;
+    item.k.forEach(k => {
+      if (k.includes(' ') || k.includes('-')) { if (s.includes(k)) sc += 2; }
+      else if (toks.some(t => t === k || (t.length > 3 && k.length > 3 && (t.startsWith(k) || k.startsWith(t))))) sc += 1;
+    });
+    if (sc > bestScore) { bestScore = sc; best = item; }
+  });
+  return best;
+}
+function renderQA(){
+  $('qa-chips').innerHTML = QA_SUGGEST.map(s => '<button class="chip" type="button" data-q="' + esc(s) + '" aria-pressed="' + (state.q === s) + '">' + esc(s) + '</button>').join('');
+  const q = state.q.trim();
+  if (!q){ $('qa-ans').innerHTML = '<p class="qa-none">Type a question or pick a suggestion.</p>'; return; }
+  const r = qaMatch(q);
+  if (!r){ $('qa-ans').innerHTML = '<div class="qa-q">You asked <b>' + esc(q) + '</b></div><p class="qa-none" style="margin-top:6px">Nothing in the CV matches that. Try one of the suggestions above, or a tool name such as ServiceNow or SAP.</p>'; return; }
+  $('qa-ans').innerHTML = '<div class="qa-q">You asked <b>' + esc(q) + '</b></div>' +
+    '<div class="qa-row"><div class="qa-metric"><span class="qa-num">' + esc(r.m()) + '</span><span class="qa-ml">' + esc(r.ml) + '</span></div><p class="qa-text">' + esc(r.a()) + '</p></div>' +
+    (r.refs.length ? '<div class="qa-src"><span>Sources</span>' + r.refs.map(id => '<button class="chip" type="button" data-pick-role="' + id + '">' + esc(ROLE[id].title + ', ' + ROLE[id].org) + '</button>').join('') + '</div>' : '');
+}
+
+function renderOverview(){
+  $('ov-scope').textContent = filterCount() ? filterCount() + ' filter' + (filterCount() > 1 ? 's' : '') + ' applied' : 'No filters applied';
+  renderTimeline(); renderRoleDetail(); renderComp(); renderTools();
+}
+
+/* ---------------- Experience ---------------- */
+function renderExperience(){
+  let hidden = 0, h = '';
+  ROLES.forEach(r => {
+    if (!roleMatches(r)) { hidden++; return; }
+    const lis = r.bullets.map(b => {
+      const hit = state.comps.size && b.c.some(c => state.comps.has(c));
+      const off = state.comps.size && !hit;
+      return '<li class="' + (hit ? 'hit' : '') + (off ? ' off' : '') + '">' + esc(b.t) +
+        (b.c.length ? '<span class="tags">' + b.c.map(c => '<button class="tag' + (state.comps.has(c) ? ' on' : '') + '" data-comp="' + c + '" aria-pressed="' + state.comps.has(c) + '">' + esc(COMP[c].name) + '</button>').join('') + '</span>' : '') + '</li>';
+    }).join('');
+    h += '<article class="vis xp" id="xp-' + r.id + '">' +
+      '<div class="xp-when"><b>' + esc(fmtRange(r)) + '</b><span>' + fmtDur(months(r)) + '</span><span class="ichip"><i class="sw ' + r.ind + '"></i>' + IND[r.ind] + '</span></div>' +
+      '<div style="min-width:0"><h3>' + esc(r.title) + '</h3><div class="xp-org">' + esc(r.org) + ' · ' + esc(r.orgNote) + ' · ' + esc(r.city) + '</div>' +
+      '<p class="xp-scope">' + esc(r.scope) + '</p>' +
+      (lis ? '<ul class="xp-ul">' + lis + '</ul>' : '') +
+      (r.tools.length ? '<div class="tools">' + r.tools.map(t => '<span class="tool">' + esc(t) + '</span>').join('') + '</div>' : '') +
+      '</div></article>';
+  });
+  if (hidden) h += '<p class="xp-hidden">' + hidden + ' role' + (hidden > 1 ? 's' : '') + ' hidden by the current filters. <button class="link" data-do="clear">Clear filters</button></p>';
+  $('xp-list').innerHTML = h;
+  $('xp-scope').textContent = (ROLES.length - hidden) + ' of ' + ROLES.length + ' roles shown';
+  $('xp-comps').innerHTML = COMPS.map(c => '<button class="chip" data-comp="' + c.id + '" aria-pressed="' + state.comps.has(c.id) + '">' + esc(c.name) + '<span class="n">' + compCount(c.id) + '</span></button>').join('');
+  const byOrg = {};
+  ROLES.forEach(r => { byOrg[r.org] = byOrg[r.org] || { m:0, ind:r.ind, from:ym(r.start), to:endYM(r) }; const o = byOrg[r.org]; o.m += months(r); o.from = Math.min(o.from, ym(r.start)); o.to = Math.max(o.to, endYM(r)); });
+  $('xp-employers').innerHTML = '<table class="mini"><thead><tr><th scope="col">Employer</th><th scope="col">Period</th><th scope="col" class="num">Years</th></tr></thead><tbody>' +
+    Object.entries(byOrg).map(([org, o]) => '<tr><td><span class="ichip"><i class="sw ' + o.ind + '"></i>' + esc(org) + '</span></td><td>' + Math.floor(o.from/12) + '–' + (o.to === NOW_YM ? 'now' : Math.floor(o.to/12)) + '</td><td class="num">' + yrs(o.m) + '</td></tr>').join('') +
+    '</tbody></table>';
+}
+
+/* ---------------- Role fit ---------------- */
+const stChip = st => '<span class="st ' + ST[st].cls + '">' + ST[st].icon + ST[st].label + '</span>';
+function renderFit(){
+  const n = s => REQS.filter(r => r.st === s).length;
+  const met = REQS.length - n('partial');
+  $('fit-kpis').innerHTML =
+    '<div class="kpi"><span class="kpi-l">Coverage</span><span class="kpi-v">' + Math.round(met/REQS.length*100) + '<small>%</small></span><span class="kpi-s">' + met + ' of ' + REQS.length + ' items met or exceeded</span></div>' +
+    '<div class="kpi"><span class="kpi-l">' + stChip('exceeds') + '</span><span class="kpi-v">' + n('exceeds') + '</span><span class="kpi-s">Degree, years, languages</span></div>' +
+    '<div class="kpi"><span class="kpi-l">' + stChip('met') + '</span><span class="kpi-v">' + n('met') + '</span><span class="kpi-s">Evidence in at least one role</span></div>' +
+    '<div class="kpi"><span class="kpi-l">' + stChip('partial') + '</span><span class="kpi-v">' + n('partial') + '</span><span class="kpi-s">Internal control frameworks</span></div>';
+  const bar = (type, name) => {
+    const rs = REQS.filter(r => r.type === type), p = rs.filter(r => r.st === 'partial').length, m = rs.length - p;
+    return '<div><div class="mix-h"><span><b>' + name + '</b></span><span>' + rs.length + ' items</span></div><div class="segbar">' +
+      '<span class="good" style="flex:' + m + ' 1 0" tabindex="0" data-tip="' + esc(name + '||Met or exceeded: ' + m + ' of ' + rs.length) + '">' + m + '</span>' +
+      '<span class="warn" style="flex:' + p + ' 1 0" tabindex="0" data-tip="' + esc(name + '||Partial: ' + p + ' of ' + rs.length) + '">' + p + '</span></div></div>';
+  };
+  $('fit-bars').innerHTML = bar('resp', 'What you’ll do (responsibilities)') + bar('req', 'What you bring (requirements)') +
+    '<p class="mix-note">Both partial items concern formal internal control frameworks. The underlying practice, checking work against rules and procedures, is in the CV.</p>';
+  $('fit-open').innerHTML = REQS.filter(r => r.st === 'partial').map(r =>
+    '<div class="open-item"><div class="oi-h"><span class="oi-id">' + r.id + '</span>' + stChip(r.st) + '</div><div class="oi-t">' + esc(r.req) + '</div><div class="oi-b">' + esc(r.bridge) + '</div></div>').join('');
+  renderRegister();
+}
+function renderRegister(){
+  const rows = REQS.filter(r => (state.fitType === 'all' || r.type === state.fitType) && (state.fitSt === 'all' || r.st === state.fitSt));
+  $('reg-count').textContent = rows.length + ' of ' + REQS.length + ' items · Owner: Adrian Rusu · Source: job description and CV';
+  $('reg').innerHTML = '<table class="reg" style="min-width:760px"><thead><tr><th scope="col">ID</th><th scope="col">The job description asks for</th><th scope="col">Evidence in the CV</th><th scope="col">Status</th></tr></thead><tbody>' +
+    rows.map(r => '<tr class="' + r.st + '"><td>' + r.id + '</td><td>' + esc(r.req) + '</td><td><span class="ev">' + esc(r.ev) + '</span>' +
+      (r.bridge ? '<span class="bridge"><b>Bridge:</b> ' + esc(r.bridge) + '</span>' : '') +
+      (r.src.length ? '<span class="src">' + r.src.map(id => '<span>' + esc(ROLE[id].title + ', ' + ROLE[id].org) + '</span>').join('') + '</span>' : '') + '</td><td>' + stChip(r.st) + '</td></tr>').join('') +
+    (rows.length ? '' : '<tr><td colspan="4">No items match these filters.</td></tr>') + '</tbody></table>';
+  document.querySelectorAll('[data-fit-type]').forEach(b => b.setAttribute('aria-pressed', b.dataset.fitType === state.fitType));
+  document.querySelectorAll('[data-fit-st]').forEach(b => b.setAttribute('aria-pressed', b.dataset.fitSt === state.fitSt));
+}
+
+/* ---------------- Continuous improvement ---------------- */
+function renderCI(){
+  const rows = INITS.map(i => {
+    const r = ROLE[i.role];
+    return { id:i.id, group:LEVERS[i.lever], label:i.name, sub:r.title + ', ' + r.org, start:r.start, end:r.end, ind:r.ind,
+      dim: !(state.ind === 'all' || r.ind === state.ind) || (state.comps.size && !state.comps.has('ci')), sel: state.init === i.id,
+      aria: i.name + ', ' + LEVERS[i.lever] + ', ' + fmtRange(r),
+      tip: i.name + '||' + LEVERS[i.lever] + '||' + r.title + ', ' + r.org + '||' + fmtRange(r) };
+  });
+  $('ci-chart').innerHTML = timeline(rows, 'init');
+  $('ci-table').innerHTML = tableHTML(['Initiative','Lever','Role','Period','Outcome'], INITS.map(i => [i.name, LEVERS[i.lever], ROLE[i.role].title + ', ' + ROLE[i.role].org, fmtRange(ROLE[i.role]), i.out]));
+  const shown = rows.filter(r => !r.dim).length;
+  $('ci-scope').textContent = shown + ' of ' + INITS.length + ' initiatives match the filters';
+  const i = INIT[state.init], r = ROLE[i.role];
+  $('ci-detail').innerHTML = '<div class="rd-k">' + esc(LEVERS[i.lever]) + '</div><h4 class="rd-t">' + esc(i.name) + '</h4>' +
+    '<div class="rd-o">' + esc(r.title) + ' · ' + esc(r.org) + ', ' + esc(r.city) + '</div>' +
+    '<div class="rd-meta"><span class="ichip"><i class="sw ' + r.ind + '"></i>' + IND[r.ind] + '</span><span>' + fmtRange(r) + '</span></div>' +
+    '<p class="rd-scope"><b style="font-weight:600">Outcome.</b> ' + esc(i.out) + '</p>' +
+    '<div class="rd-act"><a class="link" href="#xp-' + r.id + '">See the role in Experience →</a></div>';
+}
+
+/* ---------------- Profile ---------------- */
+function renderProfile(){
+  $('stmt').textContent = 'I lead operations teams and service delivery, and I build the reporting that shows how a service is really performing. In ' + Math.floor(TOTAL_M/12) +
+    ' years I moved from gas network design at ENGIE group companies to running ITIL-based IoT service operations in a shared services organization. I like turning operational data into decisions, and I work in English and French.';
+  const check = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  $('edu').innerHTML = EDU.map(e => '<li><span class="y">' + e.y + '</span><div><div class="d">' + esc(e.d) + '</div><div class="s">' + esc(e.s) + '</div>' + (e.jd ? '<span class="tgt">' + check + 'Business degree the role asks for</span>' : '') + '</div></li>').join('');
+  const meter = ([n, l, v]) => '<div class="meter" role="img" aria-label="' + esc(n + ': ' + l + ', ' + v + ' of 5') + '"><span class="meter-n">' + esc(n) + '</span><span class="meter-l">' + esc(l) + '</span><span class="pips">' + [1,2,3,4,5].map(i => '<i class="' + (i <= v ? 'on' : '') + '"></i>').join('') + '</span></div>';
+  $('langs').innerHTML = LANGS.map(meter).join('');
+  $('skills').innerHTML = SKILLS.map(meter).join('');
+}
+
+/* ---------------- Filter pane ---------------- */
+function renderFilters(){
+  document.querySelectorAll('[data-ind]').forEach(b => b.setAttribute('aria-pressed', b.dataset.ind === state.ind));
+  $('ind-val').textContent = state.ind === 'all' ? 'is (All)' : 'is ' + IND[state.ind];
+  $('comp-val').textContent = state.comps.size === 0 ? 'is (All)' : 'is ' + [...state.comps].map(c => COMP[c].name).join(' or ');
+  $('comp-checks').innerHTML = COMPS.map(c => '<label for="f-' + c.id + '"><input type="checkbox" id="f-' + c.id + '" data-check="' + c.id + '"' + (state.comps.has(c.id) ? ' checked' : '') + '>' + esc(c.name) + '<span class="n">' + compCount(c.id) + '</span></label>').join('');
+  const n = filterCount();
+  $('fcount').hidden = !n; $('fcount').textContent = n;
+}
+
+function renderAll(){ renderFilters(); renderOverview(); renderExperience(); renderCI(); }
+
+/* ---------------- Routing ---------------- */
+const PAGES = ['overview','experience','fit','improvement','profile'];
+function route(){
+  let h = decodeURIComponent(location.hash.slice(1));
+  let target = null, page = h;
+  if (!PAGES.includes(h)){
+    const el = h && document.getElementById(h);
+    const sec = el && el.closest('[data-page]');
+    if (sec){ page = sec.dataset.page; target = el; } else page = 'overview';
+  }
+  state.page = page;
+  document.querySelectorAll('[data-page]').forEach(s => { s.hidden = s.dataset.page !== page; });
+  document.querySelectorAll('[data-tab]').forEach(t => { if (t.dataset.tab === page) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current'); });
+  closeFocus();
+  if (target){ requestAnimationFrame(() => { const y = target.getBoundingClientRect().top + window.scrollY - document.querySelector('.appbar').offsetHeight - 12; window.scrollTo({ top:y, behavior:'smooth' }); }); }
+  else window.scrollTo(0, 0);
+}
+
+/* ---------------- Focus mode ---------------- */
+let focused = null;
+function closeFocus(){
+  if (!focused) return;
+  focused.classList.remove('focused');
+  const b = focused.querySelector('[data-vt="focus"]'); if (b){ b.setAttribute('aria-pressed', 'false'); b.focus({ preventScroll:true }); }
+  focused = null; $('scrim').hidden = true;
+}
+function openFocus(card){
+  closeFocus();
+  focused = card; card.classList.add('focused');
+  card.querySelector('[data-vt="focus"]').setAttribute('aria-pressed', 'true');
+  $('scrim').hidden = false;
+}
+
+/* ---------------- Tooltip ---------------- */
+const tip = $('tip'); let tipEl = null;
+function showTip(el, x, y){
+  const parts = el.dataset.tip.split('||');
+  tip.innerHTML = '<strong>' + esc(parts[0]) + '</strong>' + parts.slice(1).map(p => '<span>' + esc(p) + '</span>').join('');
+  tip.hidden = false; placeTip(x, y);
+}
+function placeTip(x, y){
+  const r = tip.getBoundingClientRect();
+  let L = x + 14, T = y + 14;
+  if (L + r.width > innerWidth - 8) L = x - r.width - 14;
+  if (L < 8) L = 8;
+  if (T + r.height > innerHeight - 8) T = y - r.height - 14;
+  tip.style.left = L + 'px'; tip.style.top = T + 'px';
+}
+const hideTip = () => { tipEl = null; tip.hidden = true; };
+document.addEventListener('pointermove', e => {
+  const el = e.target.closest && e.target.closest('[data-tip]');
+  if (el){ if (el !== tipEl){ tipEl = el; showTip(el, e.clientX, e.clientY); } else placeTip(e.clientX, e.clientY); }
+  else if (tipEl) hideTip();
+});
+document.addEventListener('focusin', e => {
+  const el = e.target.closest && e.target.closest('[data-tip]');
+  if (el && el.matches(':focus-visible')){ tipEl = el; const r = el.getBoundingClientRect(); showTip(el, r.left + Math.min(r.width/2, 40), r.bottom); }
+});
+document.addEventListener('focusout', hideTip);
+window.addEventListener('scroll', () => { if (tipEl) hideTip(); }, { passive:true });
+
+/* ---------------- Copy ---------------- */
+function copyFrom(id, btn){
+  const node = $(id);
+  const text = node.textContent.trim();
+  const done = msg => { const o = btn.dataset.label || btn.textContent; btn.dataset.label = o; btn.textContent = msg; setTimeout(() => { btn.textContent = o; }, 1600); };
+  const fallback = () => { const rg = document.createRange(); rg.selectNodeContents(node); const s = getSelection(); s.removeAllRanges(); s.addRange(rg); done('Selected'); };
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => done('Copied'), fallback);
+    else fallback();
+  } catch (err) { fallback(); }
+}
+
+/* ---------------- Events ---------------- */
+function setPane(collapsed){
+  $('fpane').classList.toggle('collapsed', collapsed);
+  $('fp-collapse').setAttribute('aria-expanded', String(!collapsed));
+  $('fp-toggle').setAttribute('aria-expanded', String(!collapsed));
+}
+function toggleComp(c){ state.comps.has(c) ? state.comps.delete(c) : state.comps.add(c); renderAll(); }
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('button, a');
+  if (!t) return;
+  const d = t.dataset;
+  if (d.vt === 'table'){
+    const card = t.closest('.vis'); const on = t.getAttribute('aria-pressed') !== 'true';
+    t.setAttribute('aria-pressed', String(on));
+    card.querySelector('.viz-chart').hidden = on; card.querySelector('.viz-table').hidden = !on;
+  } else if (d.vt === 'focus'){
+    const card = t.closest('.vis'); focused === card ? closeFocus() : openFocus(card);
+  } else if (d.kind === 'role'){
+    state.role = state.role === d.id ? null : d.id; renderOverview();
+  } else if (d.kind === 'init'){
+    state.init = d.id; renderCI();
+  } else if (d.pickRole){
+    state.role = d.pickRole; renderOverview();
+    const card = document.querySelector('[data-vis="timeline"]'); card.scrollIntoView({ behavior:'smooth', block:'center' });
+  } else if (d.do === 'clear-role'){
+    state.role = null; renderOverview();
+  } else if (d.do === 'clear'){
+    state.ind = 'all'; state.comps.clear(); renderAll();
+  } else if (d.ind){
+    state.ind = d.ind; renderAll();
+  } else if (d.comp){
+    toggleComp(d.comp);
+  } else if (d.q){
+    state.q = d.q; $('qa-input').value = d.q; renderQA();
+  } else if (d.fitType){
+    state.fitType = d.fitType; renderRegister();
+  } else if (d.fitSt){
+    state.fitSt = d.fitSt; renderRegister();
+  } else if (d.copy){
+    copyFrom(d.copy, t);
+  } else if (t.id === 'fp-clear'){
+    state.ind = 'all'; state.comps.clear(); state.role = null; renderAll();
+  } else if (t.id === 'theme-toggle'){
+    setTheme(!document.documentElement.classList.contains('dark'), true);
+  } else if (t.id === 'fp-collapse' || t.id === 'fp-toggle'){
+    setPane(!$('fpane').classList.contains('collapsed'));
+  }
+});
+document.addEventListener('change', e => { const c = e.target.dataset && e.target.dataset.check; if (c) toggleComp(c); });
+$('qa-form').addEventListener('submit', e => { e.preventDefault(); state.q = $('qa-input').value; renderQA(); });
+$('scrim').addEventListener('click', closeFocus);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFocus(); });
+window.addEventListener('hashchange', route);
+
+/* ---------------- Theme (light by default) ---------------- */
+function setTheme(dark, remember){
+  document.documentElement.classList.toggle('dark', dark);
+  const b = $('theme-toggle');
+  b.setAttribute('aria-pressed', String(dark));
+  b.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+  if (remember){ try { localStorage.setItem('cv-theme', dark ? 'dark' : 'light'); } catch (err) {} }
+}
+let savedTheme = null;
+try { savedTheme = localStorage.getItem('cv-theme'); } catch (err) {}
+setTheme(savedTheme === 'dark', false);
+
+/* ---------------- Boot ---------------- */
+$('refresh').textContent = 'Data refreshed ' + NOW.getDate() + ' ' + MON[NOW.getMonth()] + ' ' + NOW.getFullYear();
+$('foot').textContent = 'Source: CV of Adrian Rusu (2026) and the Service Management Coordinator job description. Durations are computed from role start and end months up to today. Skill levels and requirement status are self-assessed.';
+setPane(!window.matchMedia('(min-width: 1101px)').matches);
+renderKpis(); renderMix(); renderAll(); renderQA(); renderFit(); renderProfile();
+route();
+})();
+</script>
+</body>
+</html>
